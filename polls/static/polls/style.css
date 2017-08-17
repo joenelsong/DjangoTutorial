@@ -1,0 +1,12 @@
+li a {
+    color: red;
+}
+
+html {
+    background: url("images/gray-data-bg.jpg") no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+
+}

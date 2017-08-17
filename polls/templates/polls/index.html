@@ -1,6 +1,19 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"
+
+{% if user.is_authenticated %}
+<p>Hello {{ request.user.username }}.</p>
+    {% if user.is_staff %}
+    <p>Since you are an administrator you will also see</p>
+    <ul>
+        <li>Unpublished Polls</li>
+        <li>Incomplete Polls(i.e. missing choices)</li>
+    </ul>
+    {% endif %}
+{% endif %}
 <h1> Welcome to Polls!</h1>
 {% if latest_question_list %}
-<h3>Top Questions</h3>
+<h3>Top 5 Questions</h3>
     <ul>
     {% for question in latest_question_list %}
         <!-- <li><a href="/polls/{{ question.id }}/"> {{ question.question_text }}</a></li> -->
@@ -11,3 +24,4 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
